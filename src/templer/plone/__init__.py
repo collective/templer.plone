@@ -1,0 +1,1 @@
+from templer.plone.plone import Plone
