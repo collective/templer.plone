@@ -1,0 +1,12 @@
+README.txt
+setup.py
+src/templer/__init__.py
+src/templer.plone.egg-info/PKG-INFO
+src/templer.plone.egg-info/SOURCES.txt
+src/templer.plone.egg-info/dependency_links.txt
+src/templer.plone.egg-info/entry_points.txt
+src/templer.plone.egg-info/namespace_packages.txt
+src/templer.plone.egg-info/not-zip-safe
+src/templer.plone.egg-info/requires.txt
+src/templer.plone.egg-info/top_level.txt
+src/templer/plone/__init__.py
