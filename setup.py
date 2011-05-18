@@ -35,9 +35,20 @@ setup(name='templer.plone',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          # -*- Extra requirements: -*-
+          'templer.core',
+          'templer.buildout',
+          'templer.zope',
       ],
+      tests_require=[
+          'zc.buildout==1.4.3',
+          'Cheetah', 
+          'PasteScript',
+          'templer.core',
+          'templer.buildout'],
+      test_suite='templer.zope.tests.test_all.test_suite',
       entry_points="""
       # -*- Entry points: -*-
+      [paste.paster_create_template]
+      plone_basic_addon = templer.plone:Plone
       """,
       )
