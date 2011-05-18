@@ -1,6 +1,16 @@
-Note:  place names and roles of the people who contribute to this package
-       in this file, one to a line, like so:
+- Cris Ewing, original author
 
-- Joe Schmoe, Original Author
-- Bob Slob, contributed monkey patches
-- Jane Main, wrote flibberty module
+Based on code from zopeskel, contributors to which include:
+
+- Daniel Nouri
+- Tarek Ziadé
+- Mustapha Benali
+- Sylvain Viollon
+- Alan Hoey
+- Josh Johnson
+- Emanuel Sartor
+- Matthew Wilkes
+- Joel Burton
+- Cris Ewing
+- Chris Calloway
+- Chris Rossi
