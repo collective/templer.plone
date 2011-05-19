@@ -1,1 +1,31 @@
-#
+from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import IntegrationTesting
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import applyProfile
+
+from zope.configuration import xmlconfig
+
+class ${namespace_package.title()}${package.title()}(PloneSandboxLayer):
+
+    defaultBases = (PLONE_FIXTURE, )
+
+    def setUpZope(self, app, configurationContext):
+        # Load ZCML for this package
+        import ${namespace_package}.${package}
+        xmlconfig.file('configure.zcml',
+                       ${namespace_package}.${package},
+                       context=configurationContext)
+
+
+    def setUpPloneSite(self, portal):
+#if str($add_profile) == 'True'
+        applyProfile(portal, '${namespace_package}.${package}:default')
+#else
+        pass
+#end if
+
+${namespace_package.upper()}_${package.upper()}_FIXTURE = ${namespace_package.title()}${package.title()}()
+${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING = \
+    IntegrationTesting(bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE, ),
+                       name="${namespace_package.title()}${package.title()}:Integration")
