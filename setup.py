@@ -45,10 +45,10 @@ setup(name='templer.plone',
           'PasteScript',
           'templer.core',
           'templer.buildout'],
-      test_suite='templer.zope.tests.test_all.test_suite',
+      test_suite='templer.plone.tests.test_all.test_suite',
       entry_points="""
       # -*- Entry points: -*-
       [paste.paster_create_template]
-      plone_basic_addon = templer.plone:Plone
+      plone_basic = templer.plone:Plone
       """,
       )

@@ -25,7 +25,7 @@ To create a Plone project with a name like 'plone.app.myproject'
     category = "Plone Development"
     required_templates = ['basic_namespace']
     required_structures = ['egg_docs', 'bootstrap',]
-    use_local_commands = True
+    # use_local_commands = True
     use_cheetah = True
     vars = copy.deepcopy(BasicZope.vars)
     vars.insert(5, BooleanVar(
@@ -50,7 +50,7 @@ properly installed.
     def post(self, command, output_dir, vars):
         if vars['add_profile'] == False:
             # if we do not want a profile, remove it.            
-            path = os.path.join(output_dir,
+            path = os.path.join(output_dir, 'src',
                                 vars['namespace_package'],
                                 vars['package'])
             try:
