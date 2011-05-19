@@ -1,12 +1,10 @@
 import copy
-import shutil
-import os
 
 from templer.zope.basic_zope import BasicZope
 from templer.core.base import get_var
 from templer.core.vars import EASY
 from templer.core.vars import EXPERT
-from templer.core.vars import BooleanVar
+from templer.core.vars import StructuralBooleanVar
 
 class Plone(BasicZope):
     _template_dir = 'templates/plone'
@@ -28,12 +26,13 @@ To create a Plone project with a name like 'plone.app.myproject'
     # use_local_commands = True
     use_cheetah = True
     vars = copy.deepcopy(BasicZope.vars)
-    vars.insert(5, BooleanVar(
+    vars.insert(5, StructuralBooleanVar(
         'add_profile',
         title='Register Profile',
         description='Should this package register a GS Profile',
         modes=(EASY, EXPERT),
         default=False,
+        structures={'False': None, 'True': 'namespace_profile'},
         help="""
 If your package has need of a Generic Setup profile, set this value to 'True'.  
 
@@ -46,24 +45,3 @@ properly installed.
     ))
     get_var(vars, 'namespace_package').default = 'collective'
     get_var(vars, 'package').default = 'example'
-    
-    def post(self, command, output_dir, vars):
-        if vars['add_profile'] == False:
-            # if we do not want a profile, remove it.            
-            path = os.path.join(output_dir, 'src',
-                                vars['namespace_package'],
-                                vars['package'])
-            try:
-                shutil.rmtree(os.path.join(path, 'profiles'))
-            except OSError, e:
-                msg = """WARNING: Error in template rendering:
-
-%s
-
-Your package may have structural problems, please check before 
-using it.
-"""
-                self.post_run_msg = msg % str(e)
-            
-        super(Plone, self).post(command, output_dir, vars)
-
