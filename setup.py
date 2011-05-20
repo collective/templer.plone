@@ -51,6 +51,7 @@ setup(name='templer.plone',
       # -*- Entry points: -*-
       [paste.paster_create_template]
       plone_basic = templer.plone:Plone
+      archetype = templer.plone:Archetype
 
       [templer.templer_structure]
       namespace_profile = templer.plone.structures:ProfileStructure
