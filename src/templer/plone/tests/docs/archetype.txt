@@ -1,0 +1,9 @@
+====================
+archetypes template
+====================
+
+Use paster::
+    
+    >>> paster('create -vv -t archetype plone.example --no-interactive')
+    paster create -vv -t archetype plone.example --no-interactive
+    ...

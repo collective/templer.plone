@@ -19,7 +19,7 @@ and to add fields to those content types. See the instructions above
 on how to use this command.
 """
 
-    required_templates = ['plone']
+    required_templates = ['plone_basic']
     use_cheetah = True
     use_local_commands = True
 
@@ -43,12 +43,3 @@ in Plone's Add/Remove products form.
     get_var(vars, 'add_profile').default = True
     #add_profile need not appear as a question for archetype packages
     get_var(vars, 'add_profile').modes = (EXPERT,)
-
-    def post(self, command, output_dir, vars):
-        # Remove tests.py -- we already have a tests/ package
-        path = os.path.join(output_dir,
-                            vars['namespace_package'],
-                            vars['package'])
-        os.remove(os.path.join(path, 'tests.py'))
-
-        super(Archetype, self).post(command, output_dir, vars)
