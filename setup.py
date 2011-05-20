@@ -46,7 +46,6 @@ setup(name='templer.plone',
           'templer.zope',
       ],
       tests_require=tests_require,
-      test_suite='templer.plone.tests.test_all.test_suite',
       extras_require=dict(test=tests_require),
       entry_points="""
       # -*- Entry points: -*-
