@@ -43,7 +43,7 @@ setup(name=${repr($project)},
       classifiers=[
         'Framework :: Plone',
         'Intended Audience :: Developers',
-        #from zopeskel.base import LICENSE_CATEGORIES
+        #from templer.core.base import LICENSE_CATEGORIES
         #if $license_name.strip() in $LICENSE_CATEGORIES
         $repr($LICENSE_CATEGORIES[$license_name.strip()]),
         #end if
@@ -53,8 +53,9 @@ setup(name=${repr($project)},
       author_email=${repr($author_email) or $empty},
       url=${repr($url) or $empty},
       license=${repr($license_name) or $empty},
-      packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['$namespace_package', ],
+      packages=find_packages('src'),
+      package_dir = {'': 'src'},
+      namespace_packages=[${repr($namespace_package)}],
       include_package_data=True,
       zip_safe=${repr(bool($zip_safe)) or False},
       install_requires=['setuptools',
@@ -69,6 +70,4 @@ setup(name=${repr($project)},
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )
