@@ -4,7 +4,7 @@ from templer.zope.basic_zope import BasicZope
 from templer.core.base import get_var
 from templer.core.vars import EASY
 from templer.core.vars import EXPERT
-from templer.core.vars import StructuralBooleanVar
+from templer.core.vars import BooleanVar
 
 class Plone(BasicZope):
     _template_dir = 'templates/plone'
@@ -26,7 +26,7 @@ To create a Plone project with a name like 'plone.app.myproject'
     # use_local_commands = True
     use_cheetah = True
     vars = copy.deepcopy(BasicZope.vars)
-    vars.insert(5, StructuralBooleanVar(
+    vars.insert(5, BooleanVar(
         'add_profile',
         title='Register Profile',
         description='Should this package register a GS Profile',
