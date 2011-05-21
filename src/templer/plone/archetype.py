@@ -21,7 +21,7 @@ on how to use this command.
 
     required_templates = ['plone_basic']
     use_cheetah = True
-    use_local_commands = True
+    # use_local_commands = True
 
     vars = copy.deepcopy(Plone.vars)
     vars.insert(1, StringVar(

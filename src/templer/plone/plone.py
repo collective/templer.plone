@@ -22,7 +22,7 @@ To create a Plone project with a name like 'plone.app.myproject'
 """
     category = "Plone Development"
     required_templates = ['basic_namespace']
-    required_structures = ['egg_docs', 'bootstrap',]
+    default_required_structures = ['egg_docs', 'bootstrap',]
     # use_local_commands = True
     use_cheetah = True
     vars = copy.deepcopy(BasicZope.vars)
