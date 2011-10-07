@@ -4,5 +4,9 @@ Changelog
 1.0dev (unreleased)
 -------------------
 
-- Package created using zopeskel
-  []
+- Ported archetype template and doctests from zopeskel [jjmojojjmojo]
+
+- Ported basic plone template and doctests from zopeskel [cewing]
+
+- Package created using templer
+  [cewing]

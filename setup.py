@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '1.0a1'
 
 long_description = (
     open('README.txt').read()
@@ -18,7 +18,8 @@ tests_require=[
     'Cheetah', 
     'PasteScript',
     'templer.core',
-    'templer.buildout'],
+    'templer.buildout',
+    'templer.zope'],
 
 setup(name='templer.plone',
       version=version,
