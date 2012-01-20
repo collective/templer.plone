@@ -21,7 +21,7 @@ on how to use this command.
 
     required_templates = ['plone_basic']
     use_cheetah = True
-    # use_local_commands = True
+    use_local_commands = True
 
     vars = copy.deepcopy(Plone.vars)
     vars.insert(1, StringVar(
@@ -37,7 +37,7 @@ in Plone's Add/Remove products form.
 """
        )
        )
-    #zope2product should always defaults to True
+    #zope2product should always default to True
     get_var(vars, 'zope2product').default = True
     #add_profile should always default to True for archetype packages
     get_var(vars, 'add_profile').default = True
