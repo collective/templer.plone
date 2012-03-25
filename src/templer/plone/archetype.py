@@ -43,3 +43,7 @@ in Plone's Add/Remove products form.
     get_var(vars, 'add_profile').default = True
     #add_profile need not appear as a question for archetype packages
     get_var(vars, 'add_profile').modes = (EXPERT,)
+
+    def pre(self, command, output_dir, vars):
+        super(Archetype, self).pre(command, output_dir, vars)
+        vars['use_localcommands'] = self.use_local_commands

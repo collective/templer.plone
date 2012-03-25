@@ -70,4 +70,8 @@ setup(name=${repr($project)},
       [z3c.autoinclude.plugin]
       target = plone
       """,
+#if $use_localcommands
+      setup_requires=["PasteScript"],
+      paster_plugins=["templer.localcommands"],
+#end if
       )
