@@ -14,12 +14,16 @@ long_description = (
     open('CHANGES.txt').read()
     + '\n')
 
-tests_require=[
+tests_require = [
     'Cheetah', 
     'PasteScript',
     'templer.core',
     'templer.buildout',
-    'templer.zope'],
+    'templer.zope']
+
+localcommands_require = [
+    'templer.localcommands',
+    'templer.plone.localcommands']
 
 setup(name='templer.plone',
       version=version,
@@ -60,7 +64,7 @@ setup(name='templer.plone',
           'templer.zope',
       ],
       tests_require=tests_require,
-      extras_require=dict(test=tests_require),
+      extras_require=dict(test=tests_require, localcommands=localcommands_require),
       entry_points="""
       # -*- Entry points: -*-
       [paste.paster_create_template]
