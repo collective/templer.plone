@@ -22,8 +22,7 @@ tests_require = [
     'templer.zope']
 
 localcommands_require = [
-    'templer.localcommands',
-    'templer.plone.localcommands']
+    'templer.localcommands',]
 
 setup(name='templer.plone',
       version=version,
