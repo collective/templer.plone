@@ -1,9 +1,13 @@
-import os
 import copy
 
 from templer.plone import Plone
 from templer.core.base import get_var
-from templer.core.vars import var, StringVar, EASY, EXPERT
+from templer.core.vars import StringVar, EASY, EXPERT
+
+try:
+    from templer.localcommands import SUPPORTS_LOCAL_COMMANDS
+except ImportError:
+    SUPPORTS_LOCAL_COMMANDS = False
 
 class Archetype(Plone):
     _template_dir = 'templates/archetype'
@@ -21,7 +25,7 @@ on how to use this command.
 
     required_templates = ['plone_basic']
     use_cheetah = True
-    use_local_commands = True
+    use_local_commands = SUPPORTS_LOCAL_COMMANDS
 
     vars = copy.deepcopy(Plone.vars)
     vars.insert(1, StringVar(
