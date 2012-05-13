@@ -6,6 +6,7 @@ from templer.core.vars import StringVar, EASY, EXPERT
 
 try:
     from templer.localcommands import SUPPORTS_LOCAL_COMMANDS
+    from templer.localcommands import LOCAL_COMMANDS_MESSAGE
 except ImportError:
     SUPPORTS_LOCAL_COMMANDS = False
 
@@ -22,11 +23,7 @@ This template supports local commands.  These commands allow you to
 generate skeleton content types and add fields and other features to
 your new types.
 """
-    POST_RUN_TEXT = """
-Your new package supports local commands.  To access them, cd into
-the 'src' directory inside your new package.  From there, you can run
-'paster add --list` to see the list of local commands.
-"""
+    POST_RUN_TEXT = LOCAL_COMMANDS_MESSAGE
 
 
 class Archetype(Plone):
@@ -49,15 +46,14 @@ class Archetype(Plone):
 This becomes the title of the project. It is used in the
 GenericSetup registration for the project and, as such, appears
 in Plone's Add/Remove products form.
-"""
-       )
-       )
+""",
+    ))
     #zope2product should always default to True
     get_var(vars, 'zope2product').default = True
     #add_profile should always default to True for archetype packages
     get_var(vars, 'add_profile').default = True
     #add_profile need not appear as a question for archetype packages
-    get_var(vars, 'add_profile').modes = (EXPERT,)
+    get_var(vars, 'add_profile').modes = (EXPERT, )
 
     def pre(self, command, output_dir, vars):
         super(Archetype, self).pre(command, output_dir, vars)
