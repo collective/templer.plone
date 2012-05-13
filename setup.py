@@ -22,7 +22,7 @@ tests_require = [
     'templer.zope']
 
 localcommands_require = [
-    'templer.localcommands',]
+    'templer.plone.localcommands',]
 
 setup(name='templer.plone',
       version=version,
@@ -63,14 +63,17 @@ setup(name='templer.plone',
           'templer.zope',
       ],
       tests_require=tests_require,
-      extras_require=dict(test=tests_require, localcommands=localcommands_require),
+      extras_require=dict(test=tests_require,
+                          localcommands=localcommands_require),
       entry_points="""
       # -*- Entry points: -*-
       [paste.paster_create_template]
       plone_basic = templer.plone:Plone
+      plone_nested = templer.plone:NestedPlone
       archetype = templer.plone:Archetype
 
       [templer.templer_structure]
       namespace_profile = templer.plone.structures:ProfileStructure
+      nested_namespace_profile = templer.plone.structures:NestedProfileStructure
       """,
       )
