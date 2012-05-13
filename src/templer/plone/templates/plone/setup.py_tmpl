@@ -30,7 +30,7 @@ setup(name=${repr($project)},
       license=${repr($license_name) or $empty},
       packages=find_packages('src'),
       package_dir = {'': 'src'},
-      namespace_packages=[${repr($namespace_package)}],
+      namespace_packages=[${repr($namespace_package)}, ${repr($namespace_package.$namespace_package2)}],
       include_package_data=True,
       zip_safe=${repr(bool($zip_safe)) or False},
       install_requires=[
@@ -40,7 +40,11 @@ setup(name=${repr($project)},
       extras_require={'test': ['plone.app.testing']},
       entry_points="""
       # -*- Entry points: -*-
-  	  [z3c.autoinclude.plugin]
-  	  target = plone
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
+#if $use_localcommands
+      setup_requires=["PasteScript"],
+      paster_plugins=["templer.localcommands"],
+#end if
       )
