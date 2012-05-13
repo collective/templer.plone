@@ -15,14 +15,16 @@ long_description = (
     + '\n')
 
 tests_require = [
-    'Cheetah', 
+    'Cheetah',
     'PasteScript',
     'templer.core',
     'templer.buildout',
-    'templer.zope']
+    'templer.zope',
+]
 
 localcommands_require = [
-    'templer.plone.localcommands',]
+    'templer.plone.localcommands',
+]
 
 setup(name='templer.plone',
       version=version,
