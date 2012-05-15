@@ -86,6 +86,10 @@ class Plone(BasicZope):
     get_var(vars, 'namespace_package').default = 'collective'
     get_var(vars, 'package').default = 'example'
 
+    def pre(self, command, output_dir, vars):
+        super(Plone, self).pre(command, output_dir, vars)
+        vars['use_localcommands'] = self.use_local_commands
+
 
 class NestedPlone(NestedZope):
     _template_dir = 'templates/nested_plone'
