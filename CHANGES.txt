@@ -1,6 +1,22 @@
 Changelog
 =========
 
+1.0b1 - May 20, 2012
+--------------------
+
+- Re-establish localcommand support for the archetype and plone templates
+  [cewing]
+
+- Add support for optional localcommands
+  [cewing]
+
+- Create new nested namespace plone package template, like zopeskel's old
+  plone_app template
+  [cewing]
+
+- Improve the consistency of messaging across templates
+  [cewing]
+
 1.0a1 - October 7, 2011
 -----------------------
 
