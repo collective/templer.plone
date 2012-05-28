@@ -4,6 +4,9 @@ Changelog
 1.0b2 (unreleased)
 --------------------
 
+- More package classifiers are included by default
+  [hvelarde]
+
 - Development buildout extends test-4.x.cfg instead of plone-4.1.x.cfg; test
   part uses better default options
   [hvelarde]
