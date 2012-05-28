@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.0b2 (unreleased)
+--------------------
+
+- Development buildout extends test-4.x.cfg instead of plone-4.1.x.cfg; test
+  part uses better default options
+  [hvelarde]
+
 1.0b1 - May 20, 2012
 --------------------
 

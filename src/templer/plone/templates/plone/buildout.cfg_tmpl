@@ -1,17 +1,14 @@
 [buildout]
 extends =
-    http://svn.plone.org/svn/collective/buildout/plonetest/plone-4.1.x.cfg
+    http://svn.plone.org/svn/collective/buildout/plonetest/test-4.x.cfg
 
 package-name = ${namespace_package}.${package}
+package-extras = [test]
 
 parts += omelette
 
 [test]
-recipe = zc.recipe.testrunner
-eggs =
-    \${instance:eggs}
-    ${namespace_package}.${package} [test]
-defaults = ['-s', '\${buildout:package-name}']
+defaults = ['-s', '\${buildout:package-name}', '--auto-color', '--auto-progress']
 
 [omelette]
 recipe = collective.recipe.omelette
