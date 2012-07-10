@@ -24,6 +24,21 @@ script is invoked thus::
 
 This will create a basic plone package skeleton.
 
+Migration from ZopeSkel
+-------------------------
+
+Templer cannot coexist with old ZopeSkel in the same buildout, or Python virtualenv. 
+
+Otherwise you will encounter the following error when trying to create packages::
+
+      IOError: No egg-info directory found (looked in ./mycompany.content/./mycompany.content.egg-info, ./mycompany.content/bootstrap.py/mycompany.content.egg-info, ./mycompany.content/buildout.cfg/mycompany.content.egg-info, ./mycompany.content/CHANGES.txt/mycompany.content.egg-info, ./mycompany.content/CONTRIBUTORS.txt/mycompany.content.egg-info, ./mycompany.content/docs/mycompany.content.egg-info, ./mycompany.content/MANIFEST.in/mycompany.content.egg-info, ./mycompany.content/mycompany/mycompany.content.egg-info, ./mycompany.content/Paste-1.7.5.1-py2.6.egg/mycompany.content.egg-info, ./mycompany.content/PasteDeploy-1.5.0-py2.6.egg/mycompany.content.egg-info, ./mycompany.content/PasteScript-1.7.5-py2.6.egg/mycompany.content.egg-info, ./mycompany.content/README.txt/mycompany.content.egg-info, ./mycompany.content/setup.cfg/mycompany.content.egg-info, ./mycompany.content/setup.py/mycompany.content.egg-info, ./mycompany.content/src/mycompany.content.egg-info)
+
+Before start using Templer
+
+* Remove ZopeSkel references in buildout.cfg
+
+* rm -rf eggs/ZopeSkel*
+
 Other Functions
 ---------------
 
