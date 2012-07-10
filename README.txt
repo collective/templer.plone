@@ -47,3 +47,8 @@ in full on the index page for templer.core_ at PyPI_
 
 .. _templer.core: http://pypi.python.org/pypi/templer.core
 .. _PyPI: http://pypi.python.org/pypi
+
+Source code and issue tracking
+-----------------------------------
+
+* https://github.com/collective/templer.plone
