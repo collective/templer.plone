@@ -1,5 +1,4 @@
 from setuptools import setup, find_packages
-import os
 
 version = '1.0b2-dev'
 
@@ -20,6 +19,7 @@ tests_require = [
     'templer.core',
     'templer.buildout',
     'templer.zope',
+    'unittest2',
 ]
 
 localcommands_require = [
@@ -58,7 +58,7 @@ setup(name='templer.plone',
       url='http://svn.plone.org/svn/collective/templer.plone',
       license='MIT',
       packages=find_packages('src'),
-      package_dir = {'': 'src'},
+      package_dir={'': 'src'},
       namespace_packages=['templer'],
       include_package_data=True,
       zip_safe=False,
