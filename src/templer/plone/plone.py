@@ -111,4 +111,5 @@ class NestedPlone(NestedZope):
         help=GS_PROFILE_HELP,
     ))
     get_var(vars, 'namespace_package').default = 'collective'
+    get_var(vars, 'namespace_package2').default = 'nested'
     get_var(vars, 'package').default = 'example'
