@@ -1,8 +1,18 @@
 Changelog
 =========
 
-1.0b2 (unreleased)
---------------------
+1.0b2 September 16, 2012
+------------------------
+
+- Improve infrastructure created for testing plone packages
+  [gotcha]
+
+- Add a buildout to the package to ease development of templer.plone
+  [gotcha]
+
+- Improve README with links to source and tracker and compatibility warning 
+  about ZopeSkel 2.x
+  [miohtama]
 
 - More package classifiers are included by default
   [hvelarde]
