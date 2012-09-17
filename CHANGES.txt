@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.0b3 (Unreleased)
+------------------
+
+- no changes yet
+
 1.0b2 September 16, 2012
 ------------------------
 
