@@ -16,6 +16,7 @@ Let's check the content::
     __init__.py
     configure.zcml
     testing.py
+    testing.zcml
     tests
 
 If we state that we want a GS profile, the template should create that for us::
@@ -33,13 +34,18 @@ Check to ensure that the package structure is correct::
     configure.zcml
     profiles
     testing.py
+    testing.zcml
     tests
     
-The profiles directory should contain only a 'default' folder with a metadata.xml file inside::
+The profiles directory should contain a 'default' folder with a metadata.xml 
+file inside and a testing profile folder::
 
     >>> ls(package_dir, 'profiles')
     default
+    testing
     >>> ls(package_dir, 'profiles', 'default')
+    metadata.xml
+    >>> ls(package_dir, 'profiles', 'testing')
     metadata.xml
 
 We need to verify that the metadata.xml file looks correct and that the configure.zcml file now contains a profile registration::
