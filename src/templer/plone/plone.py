@@ -113,3 +113,7 @@ class NestedPlone(NestedZope):
     get_var(vars, 'namespace_package').default = 'collective'
     get_var(vars, 'namespace_package2').default = 'nested'
     get_var(vars, 'package').default = 'example'
+
+
+class PloneTile(Plone):
+    _template_dir = 'templates/plone_tile'

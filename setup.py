@@ -77,6 +77,7 @@ setup(name='templer.plone',
       [paste.paster_create_template]
       plone_basic = templer.plone:Plone
       plone_nested = templer.plone:NestedPlone
+      plone_tile = templer.plone:PloneTile
       archetype = templer.plone:Archetype
 
       [templer.templer_structure]
