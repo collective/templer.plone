@@ -1,0 +1,36 @@
+import doctest
+
+from zope.configuration import xmlconfig
+
+from plone.testing import z2
+
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
+from plone.app.testing.layers import FunctionalTesting
+from plone.app.testing.layers import IntegrationTesting
+
+
+class ${tile_classname}Layer(PloneSandboxLayer):
+
+    def setUpZope(self, app, configurationContext):
+        import ${namespace_package}.${package}
+        xmlconfig.file('configure.zcml', ${namespace_package}.${package},
+                       context=configurationContext)
+
+    def setUpPloneSite(self, portal):
+        applyProfile(portal, '${namespace_package}.${package}:default')
+
+
+${namespace_package_uppercase}_${package_uppercase}_FIXTURE = ${tile_classname}Layer()
+
+${namespace_package_uppercase}_${package_uppercase}_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(${namespace_package_uppercase}_${package_uppercase}_FIXTURE,),
+    name="${tile_classname}Layer:Integration")
+${namespace_package_uppercase}_${package_uppercase}_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(${namespace_package_uppercase}_${package_uppercase}_FIXTURE,),
+    name="${tile_classname}Layer:Functional")
+${namespace_package_uppercase}_${package_uppercase}_ACCEPTANCE_TESTING = FunctionalTesting(
+    bases=(${namespace_package_uppercase}_${package_uppercase}_FIXTURE, z2.ZSERVER_FIXTURE),
+    name="${tile_classname}Layer:Acceptance")
+
+optionflags = (doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE)

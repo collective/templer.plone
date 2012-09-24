@@ -1,0 +1,33 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+#if str($add_profile) == 'True'
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+#end if
+    i18n_domain="${namespace_package}.${package}">
+
+#if str($add_profile) == 'True'
+  <genericsetup:registerProfile
+      name="default"
+      title="${namespace_package}.${package}"
+      directory="profiles/default"
+      description="Installs the ${namespace_package}.${package} package"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+#end if
+
+  <include package="plone.app.tiles" />
+
+  <plone:tile
+    name="${namespace_package}.${package}"
+    title="${tile_title}"
+    description=""
+    add_permission="zope2.View"
+    class=".tile.${tile_classname}"
+    permission="zope.Public"
+    for="*"
+    layer="*"
+    />
+
+</configure>

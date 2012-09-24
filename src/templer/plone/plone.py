@@ -4,6 +4,7 @@ from templer.core.base import get_var
 from templer.core.vars import EASY
 from templer.core.vars import EXPERT
 from templer.core.vars import BooleanVar
+from templer.core.vars import StringVar
 from templer.zope import BasicZope
 from templer.zope import NestedZope
 
@@ -117,3 +118,20 @@ class NestedPlone(NestedZope):
 
 class PloneTile(Plone):
     _template_dir = 'templates/plone_tile'
+    vars = copy.deepcopy(Plone.vars)
+    get_var(vars, 'add_profile').default = True
+    get_var(vars, 'add_profile').modes = []
+    vars.insert(5, StringVar(
+        'tile_title',
+        title='Tile title',
+        description='The human readable title of the tile.',
+        modes=(EASY, EXPERT),
+        default="My tile",
+    ))
+
+    def pre(self, command, output_dir, vars):
+        super(PloneTile, self).pre(command, output_dir, vars)
+        vars['tile_classname'] = vars['tile_title'].title().replace(" ", "")
+        vars['namespace_package_uppercase'] = \
+            vars['namespace_package'].upper()
+        vars['package_uppercase'] = vars['package'].upper()
