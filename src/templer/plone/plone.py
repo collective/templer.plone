@@ -90,6 +90,8 @@ class Plone(BasicZope):
     def pre(self, command, output_dir, vars):
         super(Plone, self).pre(command, output_dir, vars)
         vars['use_localcommands'] = self.use_local_commands
+        vars['classname'] = (vars['namespace_package'] + vars['package'])\
+            .title().replace(" ", "")
 
 
 class NestedPlone(NestedZope):

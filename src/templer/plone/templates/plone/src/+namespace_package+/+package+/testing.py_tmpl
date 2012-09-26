@@ -1,22 +1,31 @@
-from plone.app.testing import PloneWithPackageLayer
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
+from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
-from plone.app.testing import FunctionalTesting
 
-import ${namespace_package}.${package}
+from plone.testing import z2
+
+from zope.configuration import xmlconfig
 
 
-${namespace_package.upper()}_${package.upper()} = PloneWithPackageLayer(
-    zcml_package=${namespace_package}.${package},
-    zcml_filename='testing.zcml',
-#if str($add_profile) == 'True'
-    gs_profile_id='${namespace_package}.${package}:testing',
-#end if
-    name="${namespace_package.upper()}_${package.upper()}")
+class ${classname}Layer(PloneSandboxLayer):
 
-${namespace_package.upper()}_${package.upper()}_INTEGRATION = IntegrationTesting(
-    bases=(${namespace_package.upper()}_${package.upper()}, ),
-    name="${namespace_package.upper()}_${package.upper()}_INTEGRATION")
+    defaultBases = (PLONE_FIXTURE,)
 
-${namespace_package.upper()}_${package.upper()}_FUNCTIONAL = FunctionalTesting(
-    bases=(${namespace_package.upper()}_${package.upper()}, ),
-    name="${namespace_package.upper()}_${package.upper()}_FUNCTIONAL")
+    def setUpZope(self, app, configurationContext):
+        # Load ZCML
+        import ${namespace_package}_${package}
+        xmlconfig.file('configure.zcml', ${namespace_package}_${package}, context=configurationContext)
+
+        # Install products that use an old-style initialize() function
+        #z2.installProduct(app, 'Products.PloneFormGen')
+
+    def tearDownZope(self, app):
+        # Uninstall products installed above
+        #z2.uninstallProduct(app, 'Products.PloneFormGen')
+
+    def setUpPloneSite(self, portal):
+        applyProfile(portal, '${namespace_package}_${package}:default')
+
+${namespace_package.upper()}_${package.upper()}_FIXTURE = ${classname}Layer()
+${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING = IntegrationTesting(bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE,), name="${classname}Layer:Integration")
