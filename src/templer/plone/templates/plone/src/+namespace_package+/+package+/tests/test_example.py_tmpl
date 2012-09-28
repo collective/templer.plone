@@ -4,13 +4,13 @@ import unittest2 as unittest
 from Products.CMFCore.utils import getToolByName
 #end if
 
-from ${namespace_package}.${package}.testing import\
-    ${namespace_package.upper()}_${package.upper()}_INTEGRATION
+from ${namespace_package}.${package}.testing import \
+    ${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING
 
 
 class TestExample(unittest.TestCase):
 
-    layer = ${namespace_package.upper()}_${package.upper()}_INTEGRATION
+    layer = ${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING
 
     def setUp(self):
 #if str($add_profile) == 'True'

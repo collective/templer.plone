@@ -14,18 +14,20 @@ class ${classname}Layer(PloneSandboxLayer):
 
     def setUpZope(self, app, configurationContext):
         # Load ZCML
-        import ${namespace_package}_${package}
-        xmlconfig.file('configure.zcml', ${namespace_package}_${package}, context=configurationContext)
+        import ${namespace_package}.${package}
+        xmlconfig.file('configure.zcml', ${namespace_package}.${package}, context=configurationContext)
 
         # Install products that use an old-style initialize() function
         #z2.installProduct(app, 'Products.PloneFormGen')
 
-    def tearDownZope(self, app):
-        # Uninstall products installed above
-        #z2.uninstallProduct(app, 'Products.PloneFormGen')
+#    def tearDownZope(self, app):
+#        # Uninstall products installed above
+#        z2.uninstallProduct(app, 'Products.PloneFormGen')
 
+#if str($add_profile) == 'True'
     def setUpPloneSite(self, portal):
-        applyProfile(portal, '${namespace_package}_${package}:default')
+        applyProfile(portal, '${namespace_package}.${package}:default')
+#end if
 
 ${namespace_package.upper()}_${package.upper()}_FIXTURE = ${classname}Layer()
 ${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING = IntegrationTesting(bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE,), name="${classname}Layer:Integration")
