@@ -33,6 +33,6 @@ class TestExample(unittest.TestCase):
 
     def test_success(self):
         sum = 1 + 3
-        self.assertEquals(sum, 4)
+        self.assertEqual(sum, 4)
 
 #end if
