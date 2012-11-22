@@ -15,7 +15,11 @@ class ${classname}Layer(PloneSandboxLayer):
     def setUpZope(self, app, configurationContext):
         # Load ZCML
         import ${namespace_package}.${package}
-        xmlconfig.file('configure.zcml', ${namespace_package}.${package}, context=configurationContext)
+        xmlconfig.file(
+            'configure.zcml',
+            ${namespace_package}.${package},
+            context=configurationContext
+        )
 
         # Install products that use an old-style initialize() function
         #z2.installProduct(app, 'Products.PloneFormGen')
@@ -30,4 +34,7 @@ class ${classname}Layer(PloneSandboxLayer):
 #end if
 
 ${namespace_package.upper()}_${package.upper()}_FIXTURE = ${classname}Layer()
-${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING = IntegrationTesting(bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE,), name="${classname}Layer:Integration")
+${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING = IntegrationTesting(
+    bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE,),
+    name="${classname}Layer:Integration"
+)
