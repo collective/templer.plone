@@ -11,6 +11,8 @@
   <five:registerPackage package="." initialize=".initialize" />
 #end if
 
+  <includeDependencies package="." />
+
 #if str($add_profile) == 'True'
   <genericsetup:registerProfile
       name="default"
