@@ -2,6 +2,7 @@ from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import applyProfile
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
+from plone.app.testing import FunctionalTesting
 
 from plone.testing import z2
 
@@ -37,4 +38,8 @@ ${namespace_package.upper()}_${package.upper()}_FIXTURE = ${classname}Layer()
 ${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING = IntegrationTesting(
     bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE,),
     name="${classname}Layer:Integration"
+)
+${namespace_package.upper()}_${package.upper()}_FUNCTIONAL_TESTING = FunctionalTesting(
+    bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE,),
+    name="${classname}Layer:Functional"
 )
