@@ -1,6 +1,7 @@
 - Cris Ewing, original author
 - Josh Johnson
 - David Ray
+- Maik Röder
 
 Based on code from zopeskel, contributors to which include:
 

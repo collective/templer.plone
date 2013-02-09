@@ -4,7 +4,7 @@ Changelog
 1.0b4 (unreleased)
 ------------------
 
-- 
+- Add robot based functional tests
 
 
 1.0b3 January 9, 2013
