@@ -4,8 +4,12 @@ extends =
 
 package-name = ${namespace_package}.${package}
 package-extras = [test]
+versions = versions
 
 parts += omelette
+
+[versions]
+plone.app.testing=4.2.2
 
 [test]
 defaults = ['-s', '\${buildout:package-name}', '--auto-color', '--auto-progress']
