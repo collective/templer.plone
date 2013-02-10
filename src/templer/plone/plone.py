@@ -64,6 +64,18 @@ your own Plone buildout, use one of the plone'N'_buildout templates
 """
 
 
+ROBOT_HELP = """
+If you would like to have functional testing enabled in your package,
+based on the Robot framework, set this value to 'True'.
+
+By default tests will be started with Firefox, and will check that
+the text 'Plone site' is present on the Plone home page.
+
+The following tutorial covers writing your own tests:
+http://ploneact.readthedocs.org/en/latest/tutorial.html
+"""
+
+
 class Plone(BasicZope):
     _template_dir = 'templates/plone'
     summary = "A package for Plone add-ons"
@@ -83,6 +95,14 @@ class Plone(BasicZope):
         default=False,
         structures={'False': None, 'True': 'namespace_profile'},
         help=GS_PROFILE_HELP,
+    ))
+    vars.insert(6, BooleanVar(
+        'add_robot_tests',
+        title='Robot Tests',
+        description='Should the default robot test be included',
+        modes=(EASY, EXPERT),
+        default=False,
+        help=ROBOT_HELP,
     ))
     get_var(vars, 'namespace_package').default = 'collective'
     get_var(vars, 'package').default = 'example'
