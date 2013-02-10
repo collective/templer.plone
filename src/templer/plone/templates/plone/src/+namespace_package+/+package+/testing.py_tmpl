@@ -40,6 +40,6 @@ ${namespace_package.upper()}_${package.upper()}_INTEGRATION_TESTING = Integratio
     name="${classname}Layer:Integration"
 )
 ${namespace_package.upper()}_${package.upper()}_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE,),
+    bases=(${namespace_package.upper()}_${package.upper()}_FIXTURE, z2.ZSERVER_FIXTURE),
     name="${classname}Layer:Functional"
 )
