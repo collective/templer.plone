@@ -7,10 +7,10 @@ Suite Teardown  Close All Browsers
 
 *** Test Cases ***
 
-Hello World
+Plone site
     [Tags]  hello
-    Go to  http://localhost:55001/plone/hello-world
-    Page should contain  Hello World!
+    Go to  http://localhost:55001/plone/
+    Page should contain  Plone site
 
 *** Keywords ***
 
