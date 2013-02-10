@@ -1,4 +1,4 @@
-from  ${namespace_package}.${package} import ${namespace_package.upper()}_${package.upper()}_FUNCTIONAL_TESTING
+from  ${namespace_package}.${package}.testing import ${namespace_package.upper()}_${package.upper()}_FUNCTIONAL_TESTING
 from plone.testing import layered
 import robotsuite
 import unittest
