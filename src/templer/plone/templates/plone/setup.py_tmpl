@@ -42,7 +42,11 @@ setup(name=${repr($project)},
           'setuptools',
           # -*- Extra requirements: -*-
       ],
+#if $add_robot_tests
       extras_require={'test': ['plone.app.testing[robot]>=4.2.2']},
+#else
+      extras_require={'test': ['plone.app.testing']},
+#end if
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
