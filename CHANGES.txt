@@ -7,7 +7,8 @@ Changelog
 - Use github buildout.plonetest instead of svn. Remove useless override of
   test parts which is already colorized.
   [toutpt]
-
+- update classifiers and synchronized nested and plone templates
+  [toutpt]
 
 1.0b4 February 10, 2013
 -----------------------

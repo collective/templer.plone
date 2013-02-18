@@ -4,7 +4,6 @@ extends =
 
 package-name = ${namespace_package}.${package}
 package-extras = [test]
-versions = versions
 
 parts += omelette
 

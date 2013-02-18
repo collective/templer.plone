@@ -6,9 +6,6 @@ version = ${repr($version) or "0.0"}
 long_description = (
     open('README.txt').read()
     + '\n' +
-    'Contributors\n'
-    '============\n'
-    + '\n' +
     open('CONTRIBUTORS.txt').read()
     + '\n' +
     open('CHANGES.txt').read()
@@ -22,12 +19,20 @@ setup(name=${repr($project)},
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Environment :: Web Environment",
-        "Framework :: Plone",
         "Operating System :: OS Independent",
+        "Framework :: Zope2",
+        "Framework :: Plone",
+        "Framework :: Plone :: 4.2",
+        "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
         "Topic :: Software Development :: Libraries :: Python Modules",
-        ],
+        #from templer.core.base import LICENSE_CATEGORIES
+        #if $license_name.strip() in $LICENSE_CATEGORIES
+        $repr($LICENSE_CATEGORIES[$license_name.strip()]),
+        #end if
+      ],
       keywords=${repr($keywords) or $empty},
       author=${repr($author) or $empty},
       author_email=${repr($author_email) or $empty},
