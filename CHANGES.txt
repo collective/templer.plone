@@ -4,7 +4,9 @@ Changelog
 1.0b5 unreleased
 ----------------
 
-- 
+- Use github buildout.plonetest instead of svn. Remove useless override of
+  test parts which is already colorized.
+  [toutpt]
 
 
 1.0b4 February 10, 2013
