@@ -2,10 +2,10 @@
 plone template
 ==============
 
-Use paster::
+Use templer::
 
-    >>> paster('create -t plone_basic plone.example --no-interactive')
-    paster create -t plone_basic plone.example --no-interactive
+    >>> templer('plone_basic plone.example --no-interactive')
+    templer plone_basic plone.example --no-interactive
     ...
 
 Let's check the content::
@@ -20,8 +20,8 @@ Let's check the content::
 
 If we state that we want a GS profile, the template should create that for us::
 
-    >>> paster('create -t plone_basic plone.example --no-interactive add_profile=True')
-    paster create -t plone_basic plone.example --no-interactive add_profile=True
+    >>> templer('plone_basic plone.example --no-interactive add_profile=True')
+    templer plone_basic plone.example --no-interactive add_profile=True
     ...
 
 Check to ensure that the package structure is correct::
@@ -40,10 +40,7 @@ file inside and a testing profile folder::
 
     >>> ls(package_dir, 'profiles')
     default
-    testing
     >>> ls(package_dir, 'profiles', 'default')
-    metadata.xml
-    >>> ls(package_dir, 'profiles', 'testing')
     metadata.xml
 
 We need to verify that the metadata.xml file looks correct and that the configure.zcml file now contains a profile registration::
