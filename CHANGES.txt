@@ -4,11 +4,16 @@ Changelog
 1.0b5 unreleased
 ----------------
 
+- Remove setup_requires from setup.py templates since PasteScript is no longer
+  required for localcommands to work
+  [cewing]
+
 - Run templer instead of paster in tests.
 
 - Use github buildout.plonetest instead of svn. Remove useless override of
   test parts which is already colorized.
   [toutpt]
+
 - update classifiers and synchronized nested and plone templates
   [toutpt]
 
@@ -22,9 +27,9 @@ Changelog
 1.0b3 January 9, 2013
 ---------------------
 
--  More verbose test setup added. Compliant with PPD 4 and p.a.testing
-   documentation.
-   [timo]
+- More verbose test setup added. Compliant with PPD 4 and p.a.testing
+  documentation.
+  [timo]
 
 - Template for Tiles added.
   [timo]
