@@ -15,7 +15,6 @@ long_description = (
 
 tests_require = [
     'Cheetah',
-    'PasteScript',
     'templer.core',
     'templer.buildout',
     'templer.zope',
