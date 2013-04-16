@@ -53,12 +53,8 @@ setup(name=${repr($project)},
       extras_require={'test': ['plone.app.testing']},
 #end if
       entry_points="""
-      # -*- Entry points: -*-
+      # -*- Entry points: -*- 
       [z3c.autoinclude.plugin]
       target = plone
-      """,
-#if $use_localcommands
-      setup_requires=["PasteScript"],
-      paster_plugins=["templer.localcommands"],
-#end if
+      """
       )
